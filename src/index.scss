@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html,
@@ -11,6 +12,6 @@ body {
 
 body {
     background-attachment: fixed;
-    background: linear-gradient(45deg, #536976, #292e49);
+    background: linear-gradient(145deg, #536976, #292e49);
     background-repeat: no-repeat;
 }

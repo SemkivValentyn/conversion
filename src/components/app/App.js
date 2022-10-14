@@ -1,16 +1,15 @@
+import CurrencyConverter from '../currencyConverter/CurrencyConverter';
+import Header from '../header/Header';
 
-import CurrentExchangeRate from '../сurrentExchangeRate/CurrentExchangeRate';
-import './app.scss'
+import './app.scss';
 
 const App = () => {
     return (
-
         <div className='app'>
-            <CurrentExchangeRate />
+            <Header />
+            <CurrencyConverter />
         </div>
-
     )
-}
-
+};
 
 export default App;

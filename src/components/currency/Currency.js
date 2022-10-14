@@ -1,18 +1,21 @@
 import './currency.scss'
 
-const Currency = ({ imgUrl, name, rate }) => {
+const Currency = ({ imgUrl, name, rate, code }) => {
     return (
-        <div className='currency'>
-            <div className="exchange-rate">
+        <div>
+            <div className="currency">
                 <img
                     src={imgUrl}
                     alt={name}
-                    className="exchange-rate__img"
+                    className="currency__img"
                     width="28px"
                     height="28px"
                 />
-                <h3 className='exchange-rate__name'>{name}</h3>
-                <p className='exchange-rate__rate'>{rate}</p>
+                <div className='currency__name-containers'>
+                    <div className='currency__code'>{code}</div>
+                    <div className='currency__name'>{name}</div>
+                </div>
+                <p className='currency__rate'>{rate}</p>
             </div>
 
 
