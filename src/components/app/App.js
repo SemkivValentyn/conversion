@@ -4,7 +4,11 @@ import './app.scss'
 
 const App = () => {
     return (
-        <CurrentExchangeRate/>
+
+        <div className='app'>
+            <CurrentExchangeRate />
+        </div>
+
     )
 }
 

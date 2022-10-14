@@ -1,0 +1,38 @@
+.currency {
+    .exchange-rate {
+
+
+        width: 900px;
+        margin: auto;
+        padding-top: 12px;
+        padding-bottom: 12px;
+
+        display: grid;
+        grid-template-columns: repeat(5, 278px);
+        grid-gap: 2rem;
+
+        &__img {
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+            object-fit: cover;
+            border-radius: 50px;
+            margin: 0 auto;
+        }
+
+        &__name {
+            text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+            font-size: 18px;
+            text-align: center;
+            color: white;
+        }
+
+        &__rate {
+            text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            color: white;
+        }
+
+
+
+    }
+
+}
