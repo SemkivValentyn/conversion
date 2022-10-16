@@ -3,7 +3,8 @@ const CurrencyInput = ({
   onCurrencyChange,
   onAmountChange,
   value,
-  disabled
+  disabled,
+  defaultCurrency
 }) => {
   return (
     <div className="currency-input">
@@ -13,11 +14,11 @@ const CurrencyInput = ({
         onChange={(event) => {
           onCurrencyChange(event.target.value);
         }}
+        defaultValue={defaultCurrency}
       >
-        <option value="">Виберіть валюту</option>
         {currencies.map((currency) => {
           return (
-            <option key={currency} value={currency}>
+            <option key={currency} value={currency} >
               {currency}
             </option>
           );

@@ -1,15 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
 import { convertRate } from "../../services/ExchangeRateServices";
 import CurrencyInput from "../currencyInput/CurrencyInput";
-import debounce from '../../helpers/debounce';
+import debounce from "../../helpers/debounce";
 
 import "./currencyConverter.scss";
 
-const DEBOUNCE_TIMEOUT = 1000;
+const DEBOUNCE_TIMEOUT = 500;
 
 const CurrencyConverter = () => {
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+  const defaultFrom = "USD";
+  const defaultTo = "UAH";
+  const [from, setFrom] = useState(defaultFrom);
+  const [to, setTo] = useState(defaultTo);
   const [fromValue, setFromValue] = useState("");
   const [toValue, setToValue] = useState("");
   const currecnyToShow = ["USD", "EUR", "UAH"];
@@ -19,6 +21,7 @@ const CurrencyConverter = () => {
   const handleFromValueChange = useCallback(
     debounce((amount) => {
       if (amount === "" || !from || !to) {
+        setFromEditing(false);
         return;
       }
       convertRate(from, to, amount).then((result) => {
@@ -32,6 +35,7 @@ const CurrencyConverter = () => {
   const handleToValueChange = useCallback(
     debounce((amount) => {
       if (amount === "" || !from || !to) {
+        setToEditing(false);
         return;
       }
       convertRate(to, from, amount).then((result) => {
@@ -60,6 +64,7 @@ const CurrencyConverter = () => {
           value={fromValue}
           onCurrencyChange={setFrom}
           disabled={toEditing}
+          defaultCurrency={defaultFrom}
           onAmountChange={(amount) => {
             setFromEditing(true);
             setFromValue(amount);
@@ -74,6 +79,7 @@ const CurrencyConverter = () => {
           value={toValue}
           onCurrencyChange={setTo}
           disabled={fromEditing}
+          defaultCurrency={defaultTo}
           onAmountChange={(amount) => {
             setToEditing(true);
             setToValue(amount);
