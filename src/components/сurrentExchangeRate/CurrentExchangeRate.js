@@ -1,16 +1,10 @@
-import Currency from "../currency/Currency";
-
 import { useState, useEffect } from "react";
 import { getExchangeRate } from "../../services/ExchangeRateServices";
-
-import "./currentExchangeRate.scss";
-
+import Currency from "../currency/Currency";
 const CurrentExchangeRate = () => {
   const [loading, setLoading] = useState(true);
   const [currencies, setCurrencies] = useState([]);
-
   const currenciesToShow = ["USD", "EUR"];
-
   useEffect(() => {
     getExchangeRate().then((data) => {
       setCurrencies(
@@ -22,11 +16,9 @@ const CurrentExchangeRate = () => {
       setLoading(false);
     });
   }, []);
-
   if (loading) {
     return "Loading...";
   }
-
   return currencies.length ? (
     <div className="currencies">
       {currencies.map((currency) => (
@@ -43,5 +35,4 @@ const CurrentExchangeRate = () => {
     <p>No data</p>
   );
 };
-
 export default CurrentExchangeRate;
